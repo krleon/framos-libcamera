@@ -53,11 +53,11 @@ CamHelperimx900::CamHelperimx900()
 uint32_t CamHelperimx900::gainCode(double gain) const
 {
 	/**
-	 * max gain in dec. value = 240 -> 0xf0 (analog+digital)
-	 * Gain step defined in datasheet is 10/3
+	 * max gain in dec. value = 480 -> 0x1E0 (analog+digital)
+	 * Gain step defined in datasheet is 0.1
 	 */
-	int code = 20 * log10(gain) * 10/3;
-	return std::max(0, std::min(code, 0xf0));
+	int code = 20 * log10(gain) * 10;
+	return std::max(0, std::min(code, 0x1E0));
 }
 
 /**
@@ -80,11 +80,11 @@ double CamHelperimx900::gain(uint32_t gainCode) const
 
 	/**
 	 * uint32_t CamHelperimx900::gainCode(double gain) const
-	 * will return 158.680749 for gain value 240
+	 * will return 536.24824747 for gain value 480
 	 * 
-	 * We need to convert it back to 240 value
+	 * We need to convert it back to 480 value
 	 */
-	return pow(10, 0.015 * gainCode);
+	return pow(10, 0.005 * gainCode);
 
 }
 
