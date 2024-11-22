@@ -553,8 +553,6 @@ void IpaBase::setMode(const IPACameraSensorInfo &sensorInfo)
 	 */
 	Duration minPixelTime = controller_.getHardwareConfig().minPixelProcessingTime;
 	Duration pixelTime = mode_.minLineLength / mode_.width;
-	LOG(IPARPI, Info) << "min allowed ISP line length = "<< minPixelTime * mode_.width;
-	LOG(IPARPI, Info) << "selected mode line length = "<< mode_.minLineLength;
 	if (minPixelTime && pixelTime < minPixelTime) {
 		Duration adjustedLineLength = minPixelTime * mode_.width;
 		if (adjustedLineLength <= mode_.maxLineLength) {
