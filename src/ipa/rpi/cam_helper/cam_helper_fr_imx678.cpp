@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2024, Framos
  *
- * camera helper for imx676 sensor
+ * camera helper for imx678 sensor
  */
 
 #include <math.h>
@@ -12,10 +12,10 @@
 using namespace RPiController;
 
 
-class CamHelperimx676 : public CamHelper
+class CamHelperimx678 : public CamHelper
 {
 public:
-	CamHelperimx676();
+	CamHelperimx678();
 	uint32_t gainCode(double gain) const override;
 	double gain(uint32_t gainCode) const override;
 	void getDelays(int &exposureDelay, int &gainDelay,
@@ -31,7 +31,7 @@ private:
 	static constexpr int frameIntegrationDiff = 2;
 };
 
-CamHelperimx676::CamHelperimx676()
+CamHelperimx678::CamHelperimx678()
 	: CamHelper({}, frameIntegrationDiff)
 {
 }
@@ -50,7 +50,7 @@ CamHelperimx676::CamHelperimx676()
  *
  * \return The gain code to pass to V4L2
  */
-uint32_t CamHelperimx676::gainCode(double gain) const
+uint32_t CamHelperimx678::gainCode(double gain) const
 {
 	/**
 	 * max gain in dec. value = 240 -> 0xf0 (analog+digital)
@@ -75,11 +75,11 @@ uint32_t CamHelperimx676::gainCode(double gain) const
  *
  * \return The real gain
  */
-double CamHelperimx676::gain(uint32_t gainCode) const
+double CamHelperimx678::gain(uint32_t gainCode) const
 {
 
 	/**
-	 * uint32_t CamHelperimx676::gainCode(double gain) const
+	 * uint32_t CamHelperimx678::gainCode(double gain) const
 	 * will return 158.680749 for gain value 240
 	 * 
 	 * We need to convert it back to 240 value
@@ -88,7 +88,7 @@ double CamHelperimx676::gain(uint32_t gainCode) const
 
 }
 
-void CamHelperimx676::getDelays(int &exposureDelay, int &gainDelay,
+void CamHelperimx678::getDelays(int &exposureDelay, int &gainDelay,
 				int &vblankDelay, int &hblankDelay) const
 {
 	exposureDelay = 2;
@@ -97,13 +97,13 @@ void CamHelperimx676::getDelays(int &exposureDelay, int &gainDelay,
 	hblankDelay = 2;
 }
 
-unsigned int CamHelperimx676::hideFramesStartup() const
+unsigned int CamHelperimx678::hideFramesStartup() const
 {
 	/* On startup, we seem to get 1 bad frame. */
 	return 1;
 }
 
-unsigned int CamHelperimx676::hideFramesModeSwitch() const
+unsigned int CamHelperimx678::hideFramesModeSwitch() const
 {
 	/* After a mode switch, we seem to get 1 bad frame. */
 	return 1;
@@ -111,7 +111,7 @@ unsigned int CamHelperimx676::hideFramesModeSwitch() const
 
 static CamHelper *create()
 {
-	return new CamHelperimx676();
+	return new CamHelperimx678();
 }
 
-static RegisterCamHelper reg("imx676", &create);
+static RegisterCamHelper reg("fr_imx678", &create);

@@ -114,4 +114,4 @@ static CamHelper *create()
 	return new CamHelperimx662();
 }
 
-static RegisterCamHelper reg("imx662", &create);
+static RegisterCamHelper reg("fr_imx662", &create);
