@@ -33,9 +33,9 @@ Click "Download" to automatically start downloading Raspberry Pi OS Image.
 
 ## 1. Get & Install Framos libcamera
 
-- [Compile Framos libcamera code on target system(Raspberry Pi)]()
+- [Compile Framos libcamera code on target system(Raspberry Pi)](https://github.com/framosimaging/framos-libcamera/wiki/FRAMOS-libcamera-%E2%80%90-Target-build)
 
 ## 2. Read more about features and options
 
-- [Short libcamera and rpicam-apps guide]()
+- [Short libcamera and rpicam-apps guide](https://github.com/framosimaging/framos-libcamera/wiki/FRAMOS-libcamera-and-rpicam%E2%80%90apps-short-guide)
     -   Mode selection, exposure and gain settings, frame rate control, etc.
