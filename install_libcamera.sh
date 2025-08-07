@@ -23,7 +23,7 @@ libcam_packages=(libboost-dev \
 		python3-yaml python3-ply \
 		libglib2.0-dev libgstreamer-plugins-base1.0-dev)
 		
-rpicam_packages=(libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev \
+rpicam_packages=(libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev \
 		qtbase5-dev libqt5core5a libqt5gui5 libqt5widgets5 \
 		libavcodec-dev libavdevice-dev libavformat-dev libswresample-dev \
 		cmake libboost-program-options-dev libdrm-dev libexif-dev \
