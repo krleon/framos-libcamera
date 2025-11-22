@@ -14,7 +14,7 @@ fi
 FRAMOS_DIR='/opt/framos'
 CURRENT_DIR=$(dirname $(readlink -f $0))
 SW_PACK_DIR=$CURRENT_DIR/..
-RPICAM_VERSION='v1.5.3'
+RPICAM_VERSION='v1.10.0'
 
 libcam_packages=(libboost-dev \
 		libgnutls28-dev openssl libtiff5-dev pybind11-dev \
@@ -48,7 +48,7 @@ fi
 pushd ${SW_PACK_DIR} &> /dev/null
 git clone -b $RPICAM_VERSION https://github.com/raspberrypi/rpicam-apps.git
 cp -r framos-libcamera $FRAMOS_DIR
-cp -r rpicam-apps $FRAMOS_DIR
+v1.10.0 $FRAMOS_DIR
 
 # Install custom framos libcamrea
 pushd ${FRAMOS_DIR}/framos-libcamera &> /dev/null
